@@ -193,9 +193,9 @@ class FeedFragment : Fragment() {
         lifecycleScope.launchWhenCreated {
             adapter.loadStateFlow.collectLatest { state ->
                 binding.swiperefresh.isRefreshing =
-                    state.refresh is LoadState.Loading ||
-                            state.prepend is LoadState.Loading ||
-                            state.append is LoadState.Loading
+                    state.refresh is LoadState.Loading
+//                            || state.prepend is LoadState.Loading ||
+//                            state.append is LoadState.Loading
             }
         }
         binding.swiperefresh.setOnRefreshListener(adapter::refresh)
